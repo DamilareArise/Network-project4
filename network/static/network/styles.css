@@ -1,0 +1,530 @@
+/* ── Google Font ─────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+:root {
+    --primary:       #0d9488;   
+    --primary-dark:  #0f766e;   
+    --primary-light: #f0fdfa;   
+    --primary-rgb:   13, 148, 136;
+}
+
+/* ── Base ────────────────────────────────────── */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+}
+
+.page-body {
+    padding: 24px 0;
+}
+
+/* ── Navbar ──────────────────────────────────── */
+.navbar {
+    background-color: var(--primary) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    padding: 0.55rem 1.5rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff !important;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-weight: 500;
+    font-size: 0.93rem;
+    padding: 0.4rem 0.75rem !important;
+    border-radius: 6px;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #fff !important;
+}
+
+/* ── Cards ───────────────────────────────────── */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+    transition: box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.13);
+}
+
+/* ── Avatar ──────────────────────────────────── */
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    /* user-select: none; */
+}
+
+.avatar-lg {
+    width: 76px;
+    height: 76px;
+    font-size: 2rem;
+    border: 3px solid #fff;
+}
+
+/* ── Post card ───────────────────────────────── */
+.post-card .card-body {
+    padding: 1.1rem 1.25rem;
+}
+
+.post-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.post-header .avatar {
+    margin-right: 10px;
+    margin-top: 1px;
+}
+
+.post-meta a.post-username {
+    font-weight: 600;
+    color: #1c1e21;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: block;
+    line-height: 1.2;
+}
+
+.post-meta a.post-username:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.post-timestamp {
+    font-size: 0.76rem;
+    color: #8a8d91;
+}
+
+.post-content {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #1c1e21;
+    margin: 0 0 12px 0;
+}
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #e4e6eb;
+    padding-top: 8px;
+    margin-top: 4px;
+    gap: 6px;
+}
+
+/* ── Like button ─────────────────────────────── */
+.like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    color: #606770;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+    line-height: 1;
+}
+
+.like-btn:hover {
+    background-color: #fde8e8;
+    color: #e41e3f;
+}
+
+.like-btn.liked {
+    color: #e41e3f;
+    background-color: #fde8e8;
+}
+
+.like-btn .heart {
+    font-size: 1rem;
+}
+
+/* ── Edit button ─────────────────────────────── */
+.edit-btn {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #606770;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.edit-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* ── Delete button ───────────────────────────── */
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: #606770;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.delete-btn:hover {
+    background-color: #fde8e8;
+    color: #e41e3f;
+}
+
+/* ── Edit textarea ───────────────────────────── */
+.edit-textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1.5px solid var(--primary);
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    line-height: 1.5;
+    resize: vertical;
+    margin-bottom: 8px;
+    color: #1c1e21;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.12);
+}
+
+.btn-save {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.btn-save:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ── New Post card ───────────────────────────── */
+.new-post-card .card-body {
+    padding: 1rem 1.25rem;
+}
+
+.new-post-card .card-header {
+    background: #fff;
+    border-bottom: 1px solid #e4e6eb;
+    border-radius: 12px 12px 0 0 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+    color: #1c1e21;
+}
+
+.new-post-card textarea {
+    border: 1.5px solid #e4e6eb;
+    background-color: #f0f2f5;
+    border-radius: 20px;
+    padding: 10px 16px;
+    resize: none;
+    font-size: 0.93rem;
+    font-family: inherit;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+.new-post-card textarea:focus {
+    background-color: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.12);
+    outline: none;
+}
+
+.btn-post {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.btn-post:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ── Profile header ──────────────────────────── */
+.profile-banner {
+    height: 130px;
+    background: linear-gradient(135deg, var(--primary) 0%, #2dd4bf 100%);
+    border-radius: 12px 12px 0 0;
+}
+
+.profile-info {
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    padding: 0 1.5rem 1.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+}
+
+.profile-avatar-wrapper {
+    margin-top: -38px;
+    margin-bottom: 10px;
+}
+
+.profile-username {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1c1e21;
+    margin-bottom: 4px;
+}
+
+.profile-stats {
+    display: inline-flex;
+    margin-bottom: 14px;
+    border: 1px solid #e4e6eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stat-block {
+    padding: 8px 24px;
+    text-align: center;
+    border-right: 1px solid #e4e6eb;
+}
+
+.stat-block:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1c1e21;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.72rem;
+    color: #8a8d91;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-follow {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.btn-follow:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-unfollow {
+    background-color: #fff;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    padding: 6px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.btn-unfollow:hover {
+    background-color: var(--primary-light);
+}
+
+/* ── Section heading ─────────────────────────── */
+.section-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1c1e21;
+    margin-bottom: 1rem;
+}
+
+/* ── Pagination ──────────────────────────────── */
+.pagination .page-link {
+    border-radius: 8px !important;
+    margin: 0 3px;
+    color: var(--primary);
+    border-color: #e4e6eb;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #8a8d91;
+    background-color: #fff;
+    border-color: #e4e6eb;
+}
+
+/* ── Auth pages ──────────────────────────────── */
+.auth-wrapper {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background-color: #f0f2f5;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12) !important;
+    padding: 2.25rem 2rem;
+    background: #fff;
+}
+
+.auth-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.2rem;
+    letter-spacing: -1px;
+}
+
+.auth-tagline {
+    color: #606770;
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+}
+
+.auth-card .form-group {
+    margin-bottom: 0.85rem;
+}
+
+.auth-card .form-control {
+    border-radius: 8px;
+    border: 1.5px solid #dddfe2;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.93rem;
+    font-family: inherit;
+    color: #1c1e21;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.auth-card .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+}
+
+.auth-card .btn-primary {
+    border-radius: 8px;
+    padding: 0.65rem;
+    font-weight: 700;
+    font-size: 1rem;
+    width: 100%;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    font-family: inherit;
+    margin-top: 0.5rem;
+    transition: background-color 0.15s;
+}
+
+.auth-card .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.auth-footer {
+    text-align: center;
+    color: #606770;
+    font-size: 0.88rem;
+    margin-top: 1.25rem;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-divider {
+    border: none;
+    border-top: 1px solid #e4e6eb;
+    margin: 1.5rem 0;
+}
+
+.alert-msg {
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+    color: #856404;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+}
+
+/* ── Empty state ─────────────────────────────── */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #8a8d91;
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+}

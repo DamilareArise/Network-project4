@@ -1,0 +1,66 @@
+{% extends "network/layout.html" %}
+
+{% block title %}Following &ndash; Network{% endblock %}
+
+{% block body %}
+<div class="container" style="max-width: 680px;">
+
+    <h5 class="section-heading">Following</h5>
+
+    {% for post in page_obj %}
+    <div class="card post-card mb-3" id="post-{{ post.id }}">
+        <div class="card-body">
+            <div class="post-header">
+                <div class="avatar">{{ post.user.username|first|upper }}</div>
+                <div class="post-meta ml-2">
+                    <a href="{% url 'profile' post.user.username %}" class="post-username">{{ post.user.username }}</a>
+                    <span class="post-timestamp">{{ post.timestamp|date:"N j, Y, P" }}</span>
+                </div>
+            </div>
+
+            <p class="post-content" id="content-{{ post.id }}">{{ post.content }}</p>
+
+            <div class="post-actions">
+                <button class="like-btn {% if post.id in liked_post_ids %}liked{% endif %}"
+                        id="like-btn-{{ post.id }}"
+                        onclick="toggleLike({{ post.id }})">
+                    <span class="heart">&#9829;</span>
+                    <span id="like-count-{{ post.id }}">{{ post.likes.count }}</span>
+                </button>
+
+                {% if user == post.user %}
+                <button class="edit-btn" id="edit-btn-{{ post.id }}" onclick="editPost({{ post.id }})">Edit</button>
+                <button class="delete-btn" onclick="deletePost({{ post.id }})">Delete</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="empty-state">
+        <div class="empty-state-icon">&#128100;</div>
+        <p>No posts yet. Follow some users to see their posts here.</p>
+    </div>
+    {% endfor %}
+
+    {% if page_obj.paginator.num_pages > 1 %}
+    <nav class="mt-4 mb-2">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo; Previous</a>
+            </li>
+            {% endif %}
+            <li class="page-item disabled">
+                <span class="page-link">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+            </li>
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
+{% endblock %}

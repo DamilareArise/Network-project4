@@ -1,0 +1,33 @@
+{% extends "network/layout.html" %}
+
+{% block title %}Log In &ndash; Network{% endblock %}
+
+{% block wrapper_class %}auth-wrapper{% endblock %}
+
+{% block body %}
+<div class="auth-card card">
+    <div class="auth-brand">Network</div>
+    <p class="auth-tagline">Sign in to see posts from the people you follow.</p>
+
+    {% if message %}
+    <div class="alert-msg">{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Log In">
+    </form>
+
+    <hr class="auth-divider">
+
+    <p class="auth-footer">
+        Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+    </p>
+</div>
+{% endblock %}
